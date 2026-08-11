@@ -3,6 +3,7 @@ import { Fraunces, Libre_Franklin } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { GivebutterScript } from "@/components/givebutter-script";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -69,6 +70,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${fraunces.variable} ${libreFranklin.variable}`}>
       <body className="flex min-h-screen flex-col font-sans">
+        <GivebutterScript />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
