@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 42 42% 96%;
+    --foreground: 152 16% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 152 16% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 152 16% 12%;
+    --primary: 152 46% 15%;
+    --primary-foreground: 42 42% 96%;
+    --secondary: 38 55% 52%;
+    --secondary-foreground: 152 50% 12%;
+    --muted: 40 28% 91%;
+    --muted-foreground: 152 10% 34%;
+    --accent: 16 60% 48%;
+    --accent-foreground: 42 42% 97%;
+    --destructive: 6 74% 45%;
+    --destructive-foreground: 42 42% 97%;
+    --border: 40 22% 84%;
+    --input: 40 22% 84%;
+    --ring: 38 55% 52%;
+    --radius: 0.65rem;
+    --chart-1: 152 46% 30%;
+    --chart-2: 38 55% 52%;
+    --chart-3: 16 60% 48%;
+    --chart-4: 152 20% 60%;
+    --chart-5: 38 30% 70%;
+  }
+
+  .dark {
+    --background: 152 30% 8%;
+    --foreground: 42 42% 96%;
+    --card: 152 26% 11%;
+    --card-foreground: 42 42% 96%;
+    --primary: 42 42% 96%;
+    --primary-foreground: 152 46% 15%;
+    --secondary: 38 55% 52%;
+    --secondary-foreground: 152 50% 12%;
+    --muted: 152 20% 16%;
+    --muted-foreground: 42 20% 75%;
+    --accent: 16 60% 48%;
+    --accent-foreground: 42 42% 97%;
+    --border: 152 20% 20%;
+    --input: 152 20% 20%;
+    --ring: 38 55% 52%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "kern", "liga", "calt";
+  }
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .grain-overlay {
+    position: relative;
+  }
+  .grain-overlay::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: theme("backgroundImage.grain");
+    mix-blend-mode: overlay;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  .underline-grow {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1.5px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .underline-grow:hover {
+    background-size: 100% 1.5px;
+  }
+}
+
+.font-display-italic {
+  font-family: var(--font-display);
+  font-style: italic;
+}
+
+::selection {
+  background: #c9a24b;
+  color: #0b211a;
+}
