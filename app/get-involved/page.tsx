@@ -12,6 +12,7 @@ import {
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { DonationTiers } from "@/components/donation-tiers";
+import { GivebutterForm } from "@/components/givebutter-form";
 import { CtaBand } from "@/components/cta-band";
 import { IMAGES } from "@/lib/images";
 
@@ -106,9 +107,12 @@ export default function GetInvolvedPage() {
                 </div>
               ))}
             </div>
+            <div className="mt-10">
+              <DonationTiers />
+            </div>
           </Reveal>
           <Reveal delay={0.1}>
-            <DonationTiers />
+            <GivebutterForm />
           </Reveal>
         </div>
       </section>
