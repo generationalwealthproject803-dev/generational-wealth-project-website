@@ -4,9 +4,10 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { IMAGES } from "@/lib/images";
+import { GIVEBUTTER_CAMPAIGN_CODE } from "@/lib/givebutter";
 
 const NAV_LINKS = [
   { href: "/about", label: "About" },
@@ -79,13 +80,15 @@ export function SiteHeader() {
           >
             Book a Consultation
           </Link>
-          <Link
-            href="/get-involved"
-            className="group inline-flex items-center gap-2 rounded-full bg-terracotta-500 px-5 py-2.5 text-sm font-semibold text-cream-50 shadow-card transition-transform hover:-translate-y-0.5 hover:bg-terracotta-600"
-          >
-            Donate
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-          </Link>
+          <givebutter-button
+            campaign={GIVEBUTTER_CAMPAIGN_CODE}
+            label="Donate"
+            background-color="#C2643A"
+            label-color="#FDFBF6"
+            border-radius="100"
+            drop-shadow="false"
+            icon="heart"
+          ></givebutter-button>
         </div>
 
         <button
@@ -114,19 +117,24 @@ export function SiteHeader() {
                 {link.label}
               </Link>
             ))}
-            <div className="mt-3 flex flex-col gap-3">
+            <div className="mt-3 flex flex-col items-stretch gap-3">
               <Link
                 href="/consultation"
                 className="rounded-full border border-forest-800/20 px-5 py-3 text-center text-sm font-semibold text-forest-800"
               >
                 Book a Consultation
               </Link>
-              <Link
-                href="/get-involved"
-                className="rounded-full bg-terracotta-500 px-5 py-3 text-center text-sm font-semibold text-cream-50"
-              >
-                Donate
-              </Link>
+              <div className="flex justify-center">
+                <givebutter-button
+                  campaign={GIVEBUTTER_CAMPAIGN_CODE}
+                  label="Donate"
+                  background-color="#C2643A"
+                  label-color="#FDFBF6"
+                  border-radius="100"
+                  drop-shadow="false"
+                  icon="heart"
+                ></givebutter-button>
+              </div>
             </div>
           </nav>
         </div>
